@@ -1,42 +1,52 @@
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class SortApp {
     public static void main(String[] args) {
-    Scanner scanner=new Scanner(System.in);
-        System.out.println("Rozmiar tabeli: ");
-        int a=scanner.nextInt();
+        Scanner scanner=new Scanner(System.in);
+        System.out.println("Wprowadz A:");
+        System.out.println("Wprowadz B:");
 
-        System.out.println("Liczby w tabeli: ");
-        int[] tab = new int[a];
-        for(int i=0;i<a;i++){
-            int b=scanner.nextInt();
-            tab[i]=b;
-        }
+        LinkedList lista1=new LinkedList();
+        LinkedList lista2=new LinkedList();
+        LinkedList lista3=new LinkedList();
 
+
+        int a= scanner.nextInt();
+        int b= scanner.nextInt();
         int c=0;
-        int d=5;
-        for(int j=0;j<a;j++) {
-            for (int i = 0; i < a; i++) {
-                if(tab[j]==tab[i]){
-                    c++;
+        int d=0;
+
+
+        for (int i = 1; i <= a; i++) {
+            if (a % i == 0) {
+                lista1.add(i);
+                c++;
+            }
+        }
+        System.out.println("1" +lista1);
+        System.out.println("2: "+c);
+
+        for (int i = 1; i <= b; i++) {
+            if (b % i == 0) {
+                lista2.add(i);
+                d++;
+            }
+        }
+        System.out.println("3" +lista2);
+        System.out.println("4: "+d);
+
+
+
+
+        for(int j=0;j<lista1.size();j++){
+            for(int i=0;i<d;i++){
+                if(lista1.get(j)==lista2.get(i)){
+                    lista3.add(lista1.get(j));
                 }
             }
-
-            if(d<c){
-                d=c;
-                c=0;
-                System.out.println("to liczba "+tab[j]);
-            }
-            c=0;
-
         }
-        if (d > 5) {
-            System.out.println("Ile razy wystąpiła: "+d);
-        }
-        else{
-            System.out.println("-1");
-            return;
-        }
+        System.out.println(lista3);
 
     }
 }
